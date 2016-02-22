@@ -345,9 +345,9 @@ Rack::Timeout.timeout = (ENV["RACK_TIMEOUT"] || 10).to_i
     def install_refills
       bundle_command "exec rails generate refills:import flashes"
       run "ls"
-      run "ls app"
-      run "ls app/views"
-      run "ls app/views/refills"
+      `ls app`
+      `ls app/views`
+      `ls app/views/refills`
       run "rm app/views/refills/_flashes.html.erb"
       run "rmdir app/views/refills"
     end
